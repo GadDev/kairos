@@ -1,43 +1,49 @@
 (this.webpackJsonpalpha = this.webpackJsonpalpha || []).push([
   [0],
   {
-    13: function(e, t, n) {},
-    14: function(e, t, n) {
+    11: function(e, t, n) {
+      e.exports = n(17);
+    },
+    16: function(e, t, n) {},
+    17: function(e, t, n) {
       "use strict";
       n.r(t);
       var a = n(0),
         r = n.n(a),
-        l = n(2),
+        l = n(3),
         o = n.n(l),
-        s =
-          (n(13),
-          function() {
-            return r.a.createElement(
-              "header",
+        s = (n(16), n(4)),
+        i = n(8),
+        c = n(1),
+        u = n.n(c),
+        m = function() {
+          return r.a.createElement(
+            "header",
+            null,
+            r.a.createElement(
+              "div",
               null,
+              r.a.createElement("h2", null, "\u0391"),
               r.a.createElement(
-                "div",
-                null,
-                r.a.createElement(
-                  "a",
-                  {
-                    href:
-                      "https://www.linkedin.com/in/alexandre-gadaix-a7792947/",
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    className: "logo__wrapper"
-                  },
-                  r.a.createElement("span", {
-                    className: "logo__symbol logo__symbol--a"
-                  }),
-                  r.a.createElement("span", {
-                    className: "logo__symbol logo__symbol--g"
-                  })
-                )
+                "a",
+                {
+                  href:
+                    "https://www.linkedin.com/in/alexandre-gadaix-a7792947/",
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  className: "logo__wrapper"
+                },
+                r.a.createElement("span", {
+                  className: "logo__symbol logo__symbol--a"
+                }),
+                r.a.createElement("span", {
+                  className: "logo__symbol logo__symbol--g"
+                })
               )
-            );
-          }),
-        i = function() {
+            )
+          );
+        },
+        p = function() {
           return r.a.createElement(
             "footer",
             null,
@@ -49,28 +55,28 @@
             )
           );
         },
-        c = n(3),
-        u = n(4),
-        m = n(6),
-        p = n(5),
-        h = n(7),
-        d = (function(e) {
+        d = n(5),
+        h = n(6),
+        v = n(9),
+        f = n(7),
+        g = n(10),
+        y = (function(e) {
           function t() {
             var e, n;
-            Object(c.a)(this, t);
+            Object(d.a)(this, t);
             for (var a = arguments.length, r = new Array(a), l = 0; l < a; l++)
               r[l] = arguments[l];
             return (
-              ((n = Object(m.a)(
+              ((n = Object(v.a)(
                 this,
-                (e = Object(p.a)(t)).call.apply(e, [this].concat(r))
-              )).state = { text: "", currentItemIndex: 0 }),
+                (e = Object(f.a)(t)).call.apply(e, [this].concat(r))
+              )).state = { text: "", currentItemIndex: 0, displayCursor: !1 }),
               n
             );
           }
           return (
-            Object(h.a)(t, e),
-            Object(u.a)(t, [
+            Object(g.a)(t, e),
+            Object(h.a)(t, [
               {
                 key: "componentDidMount",
                 value: function() {
@@ -99,17 +105,28 @@
                       arguments.length > 2 && void 0 !== arguments[2]
                         ? arguments[2]
                         : 2500,
-                    r = 0;
+                    r = this.props,
+                    l = r.loop,
+                    o = r.options,
+                    s = r.triggerEnd,
+                    i = this.state.currentItemIndex,
+                    c = 0;
                   this.timer = setInterval(function() {
-                    t.setState({ text: e.substr(0, r) }, function() {
-                      r === e.length &&
-                        ("continue.." !== e &&
-                          (clearInterval(t.timer),
+                    t.setState({ text: e.substr(0, c) }, function() {
+                      if (c === e.length) {
+                        if (!l && i + 1 === o.length)
+                          return (
+                            t.setState({ displayCursor: !0 }),
+                            s(),
+                            clearInterval(t.timer),
+                            !1
+                          );
+                        clearInterval(t.timer),
                           setTimeout(function() {
                             return t.hideText(e);
-                          }, a)),
-                        clearInterval(t.timer)),
-                        r++;
+                          }, a);
+                      }
+                      c++;
                     });
                   }, n);
                 }
@@ -133,8 +150,7 @@
                       if (0 === l) {
                         clearInterval(t.timer);
                         var e = t.state.currentItemIndex + 1;
-                        e === a.length &&
-                          (r ? (e = 0) : t.showText("do you like croissants?")),
+                        e === a.length && r && (e = 0),
                           setTimeout(function() {
                             return t.typeText(e);
                           }, 1e3);
@@ -147,6 +163,8 @@
               {
                 key: "render",
                 value: function() {
+                  var e = this.state.displayCursor,
+                    t = u()({ typewriter__cursor: !0, hidden: e });
                   return r.a.createElement(
                     "div",
                     { className: "typewriter" },
@@ -155,9 +173,7 @@
                       { className: "typewriter__type" },
                       this.state.text
                     ),
-                    r.a.createElement("div", {
-                      className: "typewriter__cursor"
-                    })
+                    r.a.createElement("div", { className: t })
                   );
                 }
               }
@@ -165,36 +181,66 @@
             t
           );
         })(a.Component);
-      d.defaultProps = { loop: !0 };
-      var v = d,
-        f = [
+      y.defaultProps = { loop: !1, triggerEnd: function() {} };
+      var E = y,
+        x = r.a.createContext(null),
+        _ = [
           "Hello my name's Alexandre, I'm front-end developer",
-          "I'm front-end developer",
-          "And I love croissants"
+          "and I love croissants...",
+          "how can I help you?"
         ];
-      var y = function() {
+      var b = function() {
+        var e = Object(a.useState)(!1),
+          t = Object(i.a)(e, 2),
+          n = t[0],
+          l = t[1],
+          o = r.a.useContext(x),
+          c = u()(Object(s.a)({ App: !0 }, "".concat(o), !0));
         return r.a.createElement(
           "div",
-          { className: "App" },
-          r.a.createElement(s, null),
+          { className: c },
+          r.a.createElement(m, null),
           r.a.createElement(
             "main",
             null,
             r.a.createElement(
               "div",
               { className: "typewriper__wrapper" },
-              r.a.createElement(v, { options: f })
-            )
+              r.a.createElement(E, {
+                options: _,
+                triggerEnd: function() {
+                  console.log("call displayResume"), l(!0);
+                }
+              })
+            ),
+            n &&
+              r.a.createElement(
+                "div",
+                { className: "resume__wrapper--link" },
+                r.a.createElement(
+                  "a",
+                  {
+                    href:
+                      "/assets/pdf/resume-alexandre-gadaix-october-2019.pdf",
+                    target: "_blank"
+                  },
+                  "resume"
+                )
+              )
           ),
-          r.a.createElement(i, null)
+          r.a.createElement(p, null)
         );
       };
-      o.a.render(r.a.createElement(y, null), document.getElementById("root"));
-    },
-    8: function(e, t, n) {
-      e.exports = n(14);
+      o.a.render(
+        r.a.createElement(
+          x.Provider,
+          { value: "theme-light" },
+          r.a.createElement(b, null)
+        ),
+        document.getElementById("root")
+      );
     }
   },
-  [[8, 1, 2]]
+  [[11, 1, 2]]
 ]);
-//# sourceMappingURL=main.9d7791b4.chunk.js.map
+//# sourceMappingURL=main.c963e6c3.chunk.js.map

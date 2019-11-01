@@ -12,7 +12,7 @@
         // enable additional rules
         "indent": ["error", 4, { "SwitchCase": 1 }],
         "linebreak-style": ["error", "unix"],
-        "quotes": ["error", "double"],
+        "quotes": ["error", "single"],
         "semi": ["error", "always"],
         "jest/no-disabled-tests": "warn",
         "jest/no-focused-tests": "error",

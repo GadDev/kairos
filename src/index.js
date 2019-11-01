@@ -3,11 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import ThemeContext from "./ThemeContext";
+import { Provider } from "react-redux";
+
+import store from "./store";
 
 ReactDOM.render(
-  <ThemeContext.Provider value="theme-light">
+  <Provider store={store}>
     <App />
-  </ThemeContext.Provider>,
+  </Provider>,
   document.getElementById("root")
 );

@@ -118,6 +118,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-# project_x_alpha
+# project_x_kairos
 
-Alpha, I am Alex
+Weather Forcast app, based on react, redux, postcss.

@@ -1,52 +1,81 @@
-import React, { useState } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import React, { Component } from "react";
 import classNames from "classnames";
 
-import Header from "./components/Header";
+import forecastActions from "./actions/forecast";
+
+import Button from "./components/Button";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
+import List from "./components/List";
+import Modal from "./components/Modal";
 
-import Typewriter from "./components/Typewriter";
-import ThemeContext from "./ThemeContext";
+import Spinner from "./components/Spinner";
 
-const options = [
-  "Hello my name's Alexandre, I'm front-end developer",
-  "and I love croissants...",
-  "how can I help you?"
-];
+import Locations from "./datas/locations";
 
-function App() {
-  const [message, setMessage] = useState(false);
-  const theme = React.useContext(ThemeContext);
-  const displayResume = () => {
-    console.log("call displayResume");
-    setMessage(true);
+export class App extends Component {
+  state = {
+    displayForecast: false
   };
-  const appClass = classNames({
-    App: true,
-    [`${theme}`]: true
-  });
 
-  return (
-    <div className={appClass}>
-      <Header />
-      <main>
-        <div className="typewriper__wrapper">
-          <Typewriter options={options} triggerEnd={displayResume} />
-        </div>
-        {message && (
-          <div className="resume__wrapper--link">
-            <a
-              href="/assets/pdf/resume-alexandre-gadaix-october-2019.pdf"
-              download
-              target="_blank"
-            >
-              resume
-            </a>
-          </div>
-        )}
-      </main>
-      <Footer />
-    </div>
-  );
+  handleClickButton = (lat, lng) => {
+    const { actions } = this.props;
+    actions.loadForecast(lat, lng);
+    this.setState({ displayForecast: true });
+  };
+
+  render() {
+    const { displayForecast } = this.state;
+    const { forecast } = this.props;
+    const cities = Locations.cities;
+    const appClass = classNames({
+      App: true
+    });
+
+    const forecastModal = (
+      <Modal onDismiss={() => this.setState({ displayForecast: false })}>
+        <section>
+          {forecast.currently && !forecast.forecastIsloading && (
+            <div>{forecast.currently && forecast.currently.summary}</div>
+          )}
+        </section>
+      </Modal>
+    );
+
+    return (
+      <div className={appClass}>
+        <Header />
+        <main>
+          <section>
+            <List>
+              {cities.map(city => (
+                <Button
+                  key={city.name}
+                  name={city.name}
+                  clickAction={() => this.handleClickButton(city.lat, city.lng)}
+                />
+              ))}
+            </List>
+          </section>
+          {displayForecast && forecastModal}
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  ...state
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(forecastActions, dispatch)
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
