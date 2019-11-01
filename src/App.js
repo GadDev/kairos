@@ -5,10 +5,9 @@ import classNames from "classnames";
 
 import forecastActions from "./actions/forecast";
 
-import Button from "./components/Button";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import List from "./components/List";
+import SelectCity from "./components/SelectCity";
 import Modal from "./components/Modal";
 
 import Spinner from "./components/Spinner";
@@ -20,10 +19,11 @@ export class App extends Component {
     displayForecast: false
   };
 
-  handleClickButton = (lat, lng) => {
+  handleChange = (lat, lng) => {
     const { actions } = this.props;
-    actions.loadForecast(lat, lng);
-    this.setState({ displayForecast: true });
+    actions.loadForecast(lat, lng).then(() => {
+      this.setState({ displayForecast: true });
+    });
   };
 
   render() {
@@ -49,17 +49,9 @@ export class App extends Component {
         <Header />
         <main>
           <section>
-            <List>
-              {cities.map(city => (
-                <Button
-                  key={city.name}
-                  name={city.name}
-                  clickAction={() => this.handleClickButton(city.lat, city.lng)}
-                />
-              ))}
-            </List>
+            <SelectCity cities={cities} handleChange={this.handleChange} />
           </section>
-          {displayForecast && forecastModal}
+          <section>{displayForecast && forecast.currently.summary}</section>
         </main>
         <Footer />
       </div>
