@@ -1,0 +1,9 @@
+.weather-infos {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 2rem 0;
+  }
+}

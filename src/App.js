@@ -8,7 +8,6 @@ import forecastActions from "./actions/forecast";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SelectCity from "./components/SelectCity";
-import Modal from "./components/Modal";
 
 import Spinner from "./components/Spinner";
 
@@ -21,37 +20,58 @@ export class App extends Component {
 
   handleChange = (lat, lng) => {
     const { actions } = this.props;
+    this.setState({ isLoading: true });
     actions.loadForecast(lat, lng).then(() => {
-      this.setState({ displayForecast: true });
+      this.setState({ displayForecast: true, isLoading: false });
     });
   };
 
+  reset = () => {
+    this.setState({ displayForecast: false });
+  };
+
   render() {
-    const { displayForecast } = this.state;
+    const { displayForecast, isLoading } = this.state;
     const { forecast } = this.props;
+    const { currently } = forecast;
     const cities = Locations.cities;
     const appClass = classNames({
-      App: true
+      AppWeather: true
     });
-
-    const forecastModal = (
-      <Modal onDismiss={() => this.setState({ displayForecast: false })}>
-        <section>
-          {forecast.currently && !forecast.forecastIsloading && (
-            <div>{forecast.currently && forecast.currently.summary}</div>
-          )}
-        </section>
-      </Modal>
-    );
 
     return (
       <div className={appClass}>
         <Header />
         <main>
           <section>
-            <SelectCity cities={cities} handleChange={this.handleChange} />
+            <h2>get current weather</h2>
+            <SelectCity
+              cities={cities}
+              handleChange={this.handleChange}
+              reboot={this.reset}
+            />
           </section>
-          <section>{displayForecast && forecast.currently.summary}</section>
+          <section>
+            <div className="weather-infos__wrapper">
+              {isLoading ? (
+                <Spinner />
+              ) : (
+                displayForecast && (
+                  <div>
+                    <p>summary :{currently.summary}</p>
+                    <p>apparentTemperature : {currently.apparentTemperature}</p>
+                    <p>icon :{currently.icon}</p>
+                    <p>precipIntensity : {currently.precipIntensity}</p>
+                    <p>
+                      precipIntensityError : {currently.precipIntensityError}
+                    </p>
+                    <p>temperature :{currently.temperature}</p>
+                    <p>humidity : {currently.humidity}</p>
+                  </div>
+                )
+              )}
+            </div>
+          </section>
         </main>
         <Footer />
       </div>

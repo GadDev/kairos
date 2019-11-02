@@ -1,11 +1,15 @@
 footer {
-  height: 5rem;
+  padding: 2rem 0;
   text-align: center;
 }
 
 .footer__inner-block {
   align-content: center;
+  bottom: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: fixed;
+  text-align: center;
+  width: 100%;
 }

@@ -1,9 +1,11 @@
 import React from "react";
 
+import { ReactComponent as Logo } from "../../assets/bbc-logo.svg";
+
 const Header = () => (
   <header>
     <div>
-      <h2>BBC WEATHER</h2>
+      <Logo />
     </div>
   </header>
 );

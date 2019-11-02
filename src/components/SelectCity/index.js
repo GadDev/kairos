@@ -3,8 +3,9 @@ import React, { Component } from "react";
 class SelectCity extends Component {
   change = e => {
     const selectedOption = e.target.value;
-    const { cities, handleChange } = this.props;
+    const { cities, handleChange, reboot } = this.props;
     cities.forEach(city => {
+      if (selectedOption === "default") reboot();
       if (city.name === selectedOption) handleChange(city.lat, city.lng);
     });
     this.setState({ value: selectedOption });
@@ -13,9 +14,9 @@ class SelectCity extends Component {
   render() {
     const { cities } = this.props;
     return (
-      <select className="select-component__wrapper" onChange={this.change}>
-        <option value="" defaultValue>
-          Choose city
+      <select className="select-component" onChange={this.change}>
+        <option value="default" defaultValue>
+          choose a city
         </option>
         {cities.map(city => (
           <option value={city.name} key={city.name} className="option-item">
