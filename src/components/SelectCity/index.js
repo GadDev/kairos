@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class SelectCity extends Component {
   change = e => {
@@ -28,5 +29,22 @@ class SelectCity extends Component {
     );
   }
 }
+
+SelectCity.propTypes = {
+  cities: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      lat: PropTypes.number.isRequired,
+      lng: PropTypes.number.isRequired
+    })
+  ),
+  handleChange: PropTypes.func,
+  reboot: PropTypes.func
+};
+
+SelectCity.defaultProps = {
+  handleChange: () => {},
+  reboot: () => {}
+};
 
 export default SelectCity;
