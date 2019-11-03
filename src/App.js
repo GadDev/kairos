@@ -49,7 +49,7 @@ export class App extends Component {
         <Header />
         <main>
           <section>
-            <h2>get current weather</h2>
+            <h2>Get current weather</h2>
             <SelectCity
               cities={cities}
               handleChange={this.handleChange}
