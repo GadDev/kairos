@@ -8,6 +8,7 @@ import forecastActions from "./actions/forecast";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SelectCity from "./components/SelectCity";
+import Widget from "./components/Widget";
 
 import Spinner from "./components/Spinner";
 
@@ -18,11 +19,15 @@ export class App extends Component {
     displayForecast: false
   };
 
-  handleChange = (lat, lng) => {
+  handleChange = (lat, lng, location) => {
     const { actions } = this.props;
     this.setState({ isLoading: true });
     actions.loadForecast(lat, lng).then(() => {
-      this.setState({ displayForecast: true, isLoading: false });
+      this.setState({
+        displayForecast: true,
+        isLoading: false,
+        locationWeather: location.toLowerCase()
+      });
     });
   };
 
@@ -31,7 +36,7 @@ export class App extends Component {
   };
 
   render() {
-    const { displayForecast, isLoading } = this.state;
+    const { displayForecast, isLoading, locationWeather } = this.state;
     const { forecast } = this.props;
     const { currently } = forecast;
     const cities = Locations.cities;
@@ -57,17 +62,7 @@ export class App extends Component {
                 <Spinner />
               ) : (
                 displayForecast && (
-                  <div>
-                    <p>summary :{currently.summary}</p>
-                    <p>apparentTemperature : {currently.apparentTemperature}</p>
-                    <p>icon :{currently.icon}</p>
-                    <p>precipIntensity : {currently.precipIntensity}</p>
-                    <p>
-                      precipIntensityError : {currently.precipIntensityError}
-                    </p>
-                    <p>temperature :{currently.temperature}</p>
-                    <p>humidity : {currently.humidity}</p>
-                  </div>
+                  <Widget weather={currently} location={locationWeather} />
                 )
               )}
             </div>

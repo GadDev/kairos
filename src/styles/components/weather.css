@@ -1,9 +1,101 @@
 .weather-infos {
   &__wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-top: 10px;
-    padding: 2rem 0;
+    width: 100%;
   }
+}
+
+.weather-widget {
+  &__wrapper {
+    border: 1px solid #aaa;
+    border-radius: 0.3rem;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    min-height: 10rem;
+    min-height: 250px;
+    padding: 0.5rem;
+    width: 100%;
+    article {
+      width: 100%;
+    }
+    &.paris {
+      background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.2)
+        ),
+        url("./assets/images/paris.jpg") 0 0 no-repeat;
+      background-size: cover;
+    }
+    &.new-york {
+      background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0.8),
+          rgba(0, 0, 0, 0.2)
+        ),
+        url("./assets/images/new-york.jpg") 0 0 no-repeat;
+      background-size: cover;
+    }
+    &.london {
+      background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.2)
+        ),
+        url("./assets/images/london.jpg") 0 0 no-repeat;
+      background-size: cover;
+    }
+    &.singapore {
+      background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.2)
+        ),
+        url("./assets/images/singapore.jpg") 0 0 no-repeat;
+      background-size: cover;
+    }
+    &.sydney {
+      background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.2)
+        ),
+        url("./assets/images/sydney.jpg") 0 0 no-repeat;
+      background-size: cover;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+      span {
+        font-size: 11px;
+        text-transform: capitalize;
+      }
+      &.temperature {
+        display: flex;
+        font-size: 5rem;
+        line-height: 5rem;
+        sup {
+          font-size: 1rem;
+          line-height: 3rem;
+        }
+      }
+    }
+  }
+}
+
+.clear-day,
+.clear-night,
+.rain,
+.snow,
+.sleet,
+.wind,
+.fog,
+.cloudy,
+.partly-cloudy-day,
+.partly-cloudy-night {
+  background: chocolate;
+  height: 5rem;
+  width: 5rem;
 }

@@ -6,7 +6,8 @@ class SelectCity extends Component {
     const { cities, handleChange, reboot } = this.props;
     cities.forEach(city => {
       if (selectedOption === "default") reboot();
-      if (city.name === selectedOption) handleChange(city.lat, city.lng);
+      if (city.name === selectedOption)
+        handleChange(city.lat, city.lng, city.name);
     });
     this.setState({ value: selectedOption });
   };

@@ -11,5 +11,6 @@ describe("<Header />", () => {
 
   test("should render Header", () => {
     expect(wrapper.find("header")).toHaveLength(1);
+    expect(wrapper.find(".logo-wrapper")).toHaveLength(1);
   });
 });

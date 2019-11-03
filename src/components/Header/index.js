@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from "../../assets/bbc-logo.svg";
 
 const Header = () => (
   <header>
-    <div>
+    <div className="logo-wrapper">
       <Logo />
     </div>
   </header>
