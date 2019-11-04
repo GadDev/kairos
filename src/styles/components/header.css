@@ -8,4 +8,11 @@ header {
   padding: 0.8rem 0 0.5rem;
   position: relative;
   text-align: center;
+
+  .logo-wrapper {
+    background: url("./assets/bbc-logo.svg") 0 0 no-repeat;
+    background-size: contain;
+    height: 30px;
+    width: 100px;
+  }
 }

@@ -195,6 +195,12 @@ header {
   position: relative;
   text-align: center;
 }
+header .logo-wrapper {
+  background: url("./assets/bbc-logo.svg") 0 0 no-repeat;
+  background-size: contain;
+  height: 30px;
+  width: 100px;
+}
 footer {
   padding: 2rem 0;
   text-align: center;

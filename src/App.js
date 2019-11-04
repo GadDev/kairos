@@ -48,7 +48,7 @@ export class App extends Component {
       <div className={appClass}>
         <Header />
         <main>
-          <section>
+          <section className="select-city__wrapper">
             <h2>Get current weather</h2>
             <SelectCity
               cities={cities}
@@ -56,7 +56,7 @@ export class App extends Component {
               reboot={this.reset}
             />
           </section>
-          <section>
+          <section className="weather-response__wrapper">
             <div className="weather-infos__wrapper">
               {isLoading ? (
                 <Spinner />
