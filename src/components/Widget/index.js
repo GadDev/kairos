@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 
 const Widget = ({ weather, location }) => {
@@ -51,6 +52,16 @@ const Widget = ({ weather, location }) => {
       </article>
     </article>
   );
+};
+
+Widget.propTypes = {
+  weather: PropTypes.shape({}),
+  location: PropTypes.string
+};
+
+Widget.defaultProps = {
+  weather: {},
+  location: ""
 };
 
 export default Widget;
