@@ -42,3 +42,9 @@
 .select-component option {
   font-weight: normal;
 }
+
+@media (--viewport-medium) {
+  .select-component {
+    width: 30%;
+  }
+}

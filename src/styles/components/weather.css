@@ -7,6 +7,8 @@
 
 .weather-widget {
   &__wrapper {
+    align-items: center;
+    align-self: center;
     border: 1px solid #aaa;
     border-radius: 0.3rem;
     box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
@@ -15,16 +17,25 @@
     flex-direction: row;
     min-height: 10rem;
     min-height: 250px;
-    padding: 0.5rem;
+    transform: translate3d(0, 0, 0);
     width: 100%;
     article {
       width: 100%;
+    }
+
+    .block-content {
+      padding: 10px;
+    }
+
+    .icon__wrapper {
+      height: 4rem;
+      width: 4rem;
     }
     &.paris {
       background: linear-gradient(
           to bottom,
           rgba(0, 0, 0, 0.8),
-          rgba(0, 0, 0, 0.2)
+          rgba(0, 0, 0, 0.5)
         ),
         url("./assets/images/paris.jpg") 0 0 no-repeat;
       background-size: cover;
@@ -33,7 +44,7 @@
       background: linear-gradient(
           to bottom,
           rgba(0, 0, 0.8),
-          rgba(0, 0, 0, 0.2)
+          rgba(0, 0, 0, 0.3)
         ),
         url("./assets/images/new-york.jpg") 0 0 no-repeat;
       background-size: cover;
@@ -42,7 +53,7 @@
       background: linear-gradient(
           to bottom,
           rgba(0, 0, 0, 0.8),
-          rgba(0, 0, 0, 0.2)
+          rgba(0, 0, 0, 0.4)
         ),
         url("./assets/images/london.jpg") 0 0 no-repeat;
       background-size: cover;
@@ -51,7 +62,7 @@
       background: linear-gradient(
           to bottom,
           rgba(0, 0, 0, 0.8),
-          rgba(0, 0, 0, 0.2)
+          rgba(0, 0, 0, 0.4)
         ),
         url("./assets/images/singapore.jpg") 0 0 no-repeat;
       background-size: cover;
@@ -59,22 +70,30 @@
     &.sydney {
       background: linear-gradient(
           to bottom,
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0.2)
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.3)
         ),
         url("./assets/images/sydney.jpg") 0 0 no-repeat;
       background-size: cover;
     }
+
+    h3 {
+      font-size: 1.55rem;
+      margin: 0 0 1rem;
+      text-transform: capitalize;
+    }
     p {
-      margin: 0;
+      letter-spacing: 1px;
+      margin: 0.5rem auto 0;
       padding: 0;
       span {
         font-size: 11px;
+
         text-transform: capitalize;
       }
       &.temperature {
         display: flex;
-        font-size: 5rem;
+        font-size: 5.5rem;
         line-height: 5rem;
         sup {
           font-size: 1rem;
@@ -85,17 +104,65 @@
   }
 }
 
-.clear-day,
-.clear-night,
-.rain,
-.snow,
-.sleet,
-.wind,
-.fog,
-.cloudy,
-.partly-cloudy-day,
+.clear-day {
+  background: url("./assets/icons/clear-day.svg") 0 0 no-repeat;
+  background-size: contain;
+}
+
+.clear-night {
+  background: url("./assets/icons/clear-night.svg") 0 0 no-repeat;
+  background-size: contain;
+}
+
+.rain {
+  background: url("./assets/icons/rain.svg") 0 0 no-repeat;
+  background-size: contain;
+}
+
+.sleet {
+  background: url("./assets/icons/sleet.svg") 0 0 no-repeat;
+  background-size: contain;
+}
+
+.wind {
+  background: url("./assets/icons/wind.svg") 0 0 no-repeat;
+  background-size: contain;
+}
+
+.fog {
+  background: url("./assets/icons/fog.svg") 0 0 no-repeat;
+  background-size: contain;
+}
+
+.cloudy {
+  background: url("./assets/icons/cloudy.svg") 0 0 no-repeat;
+  background-size: contain;
+}
+
+.partly-cloudy-day {
+  background: url("./assets/icons/partly-cloudy-day.svg") 0 0 no-repeat;
+  background-size: contain;
+}
+
 .partly-cloudy-night {
-  background: chocolate;
-  height: 5rem;
-  width: 5rem;
+  background: url("./assets/icons/partly-cloudy-night.svg") 0 0 no-repeat;
+  background-size: contain;
+}
+
+@media (--viewport-medium) {
+  .weather-infos {
+    &__wrapper {
+      margin-top: 10px;
+      width: 50%;
+    }
+  }
+}
+
+@media (--viewport-large) {
+  .weather-infos {
+    &__wrapper {
+      margin-top: 10px;
+      width: 40%;
+    }
+  }
 }
