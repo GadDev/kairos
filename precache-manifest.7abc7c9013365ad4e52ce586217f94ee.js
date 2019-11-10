@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0b08cb296aaa03813c6b978ff392ee7a",
+    "revision": "42593d297ac752c8e3631996e07c2dae",
     "url": "/kairos/index.html"
   },
   {
-    "revision": "a500c2c1019fbace1aa7",
-    "url": "/kairos/static/css/main.f812d983.chunk.css"
+    "revision": "40971f8ae876e5c943db",
+    "url": "/kairos/static/css/main.f0a846fc.chunk.css"
   },
   {
     "revision": "d1649c4b56d3db1bc086",
     "url": "/kairos/static/js/2.0ebc8276.chunk.js"
   },
   {
-    "revision": "a500c2c1019fbace1aa7",
+    "revision": "40971f8ae876e5c943db",
     "url": "/kairos/static/js/main.81de2940.chunk.js"
   },
   {
@@ -40,16 +40,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kairos/static/media/fog.3005840a.svg"
   },
   {
-    "revision": "f7246630e6d977f8958bdf8a71f0cfee",
-    "url": "/kairos/static/media/london.f7246630.jpg"
+    "revision": "a3c419e59c4b2d25319dc38b0d8c2618",
+    "url": "/kairos/static/media/london.a3c419e5.jpg"
   },
   {
-    "revision": "204298554242b235784d93a48b7caff5",
-    "url": "/kairos/static/media/new-york.20429855.jpg"
+    "revision": "bc11cdfdb4c899d0d63bef41fb55a252",
+    "url": "/kairos/static/media/new-york.bc11cdfd.jpg"
   },
   {
-    "revision": "03bb9ce5ad0b144f2deb754738906ba2",
-    "url": "/kairos/static/media/paris.03bb9ce5.jpg"
+    "revision": "d9179f8b42b9ad8cb2971032d34e2593",
+    "url": "/kairos/static/media/paris.d9179f8b.jpg"
   },
   {
     "revision": "a23e10de548f6e3ce36011c58ac31e6a",
@@ -64,16 +64,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kairos/static/media/rain.689d51b8.svg"
   },
   {
-    "revision": "2298bc4e330a97425b94fa414398628e",
-    "url": "/kairos/static/media/singapore.2298bc4e.jpg"
+    "revision": "61b4c4f722956d620f49b0136fb66cb9",
+    "url": "/kairos/static/media/singapore.61b4c4f7.jpg"
   },
   {
     "revision": "b60403f00eb660c072db7825abb9aaac",
     "url": "/kairos/static/media/sleet.b60403f0.svg"
   },
   {
-    "revision": "fc8766f0451b968d00f0b85d8d0090a6",
-    "url": "/kairos/static/media/sydney.fc8766f0.jpg"
+    "revision": "005f2b2a7fbce9c91631d4f39c7b0a6b",
+    "url": "/kairos/static/media/sydney.005f2b2a.jpg"
   },
   {
     "revision": "4b29e7c44bfedd2b21ee2519dd320241",
