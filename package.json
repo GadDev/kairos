@@ -66,9 +66,9 @@
   "scripts": {
     "build:css": "postcss src/styles/main.css -o src/index.css",
     "watch:css": "postcss src/styles/main.css -o src/index.css -w",
-    "start": "react-scripts start",
-    "predeploy": "yarn run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --ext .js,.jsx . --fix",
