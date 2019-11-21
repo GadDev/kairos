@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => (
   <div>
     <header>
-      <div className="logo-wrapper"></div>
+      <h2>kairos app</h2>
     </header>
   </div>
 );

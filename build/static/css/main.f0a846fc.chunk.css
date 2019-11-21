@@ -46,10 +46,12 @@ main {
 main,
 section {
   align-items: center;
+  -webkit-box-align: center;
   display: flex;
   flex-direction: column;
 }
 section {
+  -webkit-box-pack: center;
   justify-content: center;
   width: 100%;
 }
@@ -121,15 +123,18 @@ section {
 }
 .spinner {
   background-color: initial;
+  -webkit-box-pack: center;
   justify-content: center;
   margin: auto;
 }
 .pulse-container,
 .spinner {
   align-items: center;
+  -webkit-box-align: center;
   display: flex;
 }
 .pulse-container {
+  -webkit-box-pack: justify;
   justify-content: space-between;
   width: 2.5rem;
 }
@@ -179,6 +184,8 @@ section {
 header {
   align-items: center;
   border-bottom: 1px solid #ccc;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -200,6 +207,7 @@ footer {
 .footer__inner-block {
   align-content: center;
   bottom: 1rem;
+  -webkit-box-pack: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -216,6 +224,7 @@ footer {
   align-self: center;
   border: 1px solid #aaa;
   border-radius: 0.3rem;
+  -webkit-box-align: center;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
   color: #fff;
   display: flex;
@@ -244,9 +253,9 @@ footer {
       from(rgba(0, 0, 0, 0.8)),
       to(rgba(0, 0, 0, 0.5))
     ),
-    url(/kairos/static/media/paris.03bb9ce5.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/paris.d9179f8b.jpg) 0 0 no-repeat;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
-    url(/kairos/static/media/paris.03bb9ce5.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/paris.d9179f8b.jpg) 0 0 no-repeat;
   background-size: cover;
 }
 .weather-widget__wrapper.new-york {
@@ -257,9 +266,9 @@ footer {
       from(rgba(0, 0, 0.8)),
       to(rgba(0, 0, 0, 0.3))
     ),
-    url(/kairos/static/media/new-york.20429855.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/new-york.bc11cdfd.jpg) 0 0 no-repeat;
   background: linear-gradient(180deg, rgba(0, 0, 0.8), rgba(0, 0, 0, 0.3)),
-    url(/kairos/static/media/new-york.20429855.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/new-york.bc11cdfd.jpg) 0 0 no-repeat;
   background-size: cover;
 }
 .weather-widget__wrapper.london {
@@ -270,9 +279,9 @@ footer {
       from(rgba(0, 0, 0, 0.8)),
       to(rgba(0, 0, 0, 0.4))
     ),
-    url(/kairos/static/media/london.f7246630.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/london.a3c419e5.jpg) 0 0 no-repeat;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
-    url(/kairos/static/media/london.f7246630.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/london.a3c419e5.jpg) 0 0 no-repeat;
   background-size: cover;
 }
 .weather-widget__wrapper.singapore {
@@ -283,9 +292,9 @@ footer {
       from(rgba(0, 0, 0, 0.8)),
       to(rgba(0, 0, 0, 0.4))
     ),
-    url(/kairos/static/media/singapore.2298bc4e.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/singapore.61b4c4f7.jpg) 0 0 no-repeat;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
-    url(/kairos/static/media/singapore.2298bc4e.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/singapore.61b4c4f7.jpg) 0 0 no-repeat;
   background-size: cover;
 }
 .weather-widget__wrapper.sydney {
@@ -296,9 +305,9 @@ footer {
       from(rgba(0, 0, 0, 0.8)),
       to(rgba(0, 0, 0, 0.3))
     ),
-    url(/kairos/static/media/sydney.fc8766f0.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/sydney.005f2b2a.jpg) 0 0 no-repeat;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
-    url(/kairos/static/media/sydney.fc8766f0.jpg) 0 0 no-repeat;
+    url(/kairos/static/media/sydney.005f2b2a.jpg) 0 0 no-repeat;
   background-size: cover;
 }
 .weather-widget__wrapper h3 {
