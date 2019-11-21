@@ -2,7 +2,7 @@
   "name": "kairos",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gaddev.github.io/kairos/",
+  "homepage": "./",
   "dependencies": {
     "cross-fetch": "^3.0.4",
     "eslint-config-standard": "^14.1.0",
